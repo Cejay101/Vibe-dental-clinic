@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Appointment - BrightSmile Dental Clinic</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav id="nav">
+  <a class="logo" href="index.html">
+    <div class="logo-mark">🦷</div>
+    <div class="logo-text">
+      <div class="logo-name">Bright<span>Smile</span></div>
+      <div class="logo-sub">Dental Clinic</div>
+    </div>
+  </a>
+  <button class="hamburger" id="ham" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" id="n-home">Home</a></li>
+    <li><a href="about.html" id="n-about">About Us</a></li>
+    <li><a href="appointment.html" id="n-booking" class="nav-book active">Book Appointment</a></li>
+  </ul>
+</nav>
+
+<!-- BOOKING PAGE -->
+<div class="booking-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="booking-sidebar">
+    <div class="sidebar-logo">
+      <div class="sidebar-logo-mark">🦷</div>
+      <div class="sidebar-logo-name">Bright<span>Smile</span></div>
+    </div>
+    <h2 class="sidebar-title">Book your<br><em>appointment</em></h2>
+    <p class="sidebar-sub">Complete the form and our reception team will confirm your slot within a few hours via phone or email.</p>
+    <div class="sidebar-info">
+      <div class="si-row">
+        <div class="si-icon">📍</div>
+        <div class="si-text"><strong>Address</strong><span>14 Maple Street, Suite 201<br>Springfield, SP1 4DT</span></div>
+      </div>
+      <div class="si-row">
+        <div class="si-icon">📞</div>
+        <div class="si-text"><strong>Phone</strong><span>(555) 012-3456</span></div>
+      </div>
+      <div class="si-row">
+        <div class="si-icon">✉️</div>
+        <div class="si-text"><strong>Email</strong><span>hello@brightsmile.clinic</span></div>
+      </div>
+      <div class="si-row">
+        <div class="si-icon">🚗</div>
+        <div class="si-text"><strong>Parking</strong><span>Free on-site parking for all patients</span></div>
+      </div>
+    </div>
+    <div class="hours-block">
+      <div class="hours-head">Opening Hours</div>
+      <div class="hours-row"><span class="hours-day">Monday – Friday</span><span class="hours-time">8:00 AM – 6:00 PM</span></div>
+      <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">9:00 AM – 3:00 PM</span></div>
+      <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-closed">Closed</span></div>
+    </div>
+  </aside>
+
+  <!-- FORM AREA -->
+  <div class="booking-form-area">
+    <div id="formWrapper">
+      <div class="form-top">
+        <h2>Request an Appointment</h2>
+        <p>Fields marked <span class="req-note">*</span> are required. We'll be in touch to confirm.</p>
+      </div>
+
+      <!-- STEP INDICATOR -->
+      <div class="steps">
+        <div class="step active" id="s1"><div class="step-circle">1</div>Your Details</div>
+        <div class="step-line" id="sl1"></div>
+        <div class="step" id="s2"><div class="step-circle">2</div>Appointment</div>
+        <div class="step-line" id="sl2"></div>
+        <div class="step" id="s3"><div class="step-circle">3</div>Confirm</div>
+      </div>
+
+      <!-- STEP 1: PERSONAL INFO -->
+      <div class="form-section active" id="sec1">
+        <h3>Personal Information</h3>
+        <div class="fg-grid">
+          <div class="fg">
+            <label>First Name <span class="req">*</span></label>
+            <input type="text" id="f-first" placeholder="Jane"/>
+            <span class="ferr" id="e-first">Please enter your first name.</span>
+          </div>
+          <div class="fg">
+            <label>Last Name <span class="req">*</span></label>
+            <input type="text" id="f-last" placeholder="Smith"/>
+            <span class="ferr" id="e-last">Please enter your last name.</span>
+          </div>
+          <div class="fg">
+            <label>Email Address <span class="req">*</span></label>
+            <input type="email" id="f-email" placeholder="jane@email.com"/>
+            <span class="ferr" id="e-email">Please enter a valid email.</span>
+          </div>
+          <div class="fg">
+            <label>Phone Number <span class="req">*</span></label>
+            <input type="tel" id="f-phone" placeholder="(555) 000-0000"/>
+            <span class="ferr" id="e-phone">Please enter your phone number.</span>
+          </div>
+          <div class="fg">
+            <label>Date of Birth</label>
+            <input type="date" id="f-dob"/>
+          </div>
+          <div class="fg">
+            <label>Patient Type <span class="req">*</span></label>
+            <select id="f-ptype">
+              <option value="">Select…</option>
+              <option>New Patient</option>
+              <option>Returning Patient</option>
+            </select>
+            <span class="ferr" id="e-ptype">Please select patient type.</span>
+          </div>
+        </div>
+        <div class="form-nav">
+          <span></span>
+          <button class="btn-next" onclick="goStep(2)">Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 2: APPOINTMENT -->
+      <div class="form-section" id="sec2">
+        <h3>Appointment Details</h3>
+        <div class="fg-grid">
+          <div class="fg fg-full">
+            <label>Service Required <span class="req">*</span></label>
+            <select id="f-service">
+              <option value="">Select a service…</option>
+              <option>General Check-up & Cleaning</option>
+              <option>Teeth Whitening</option>
+              <option>Dental Implants Consultation</option>
+              <option>Orthodontics / Braces</option>
+              <option>Gum Disease Treatment</option>
+              <option>Paediatric Dentistry</option>
+              <option>Emergency Appointment</option>
+              <option>Other / Not Sure</option>
+            </select>
+            <span class="ferr" id="e-service">Please select a service.</span>
+          </div>
+          <div class="fg">
+            <label>Preferred Date <span class="req">*</span></label>
+            <input type="date" id="f-date"/>
+            <span class="ferr" id="e-date">Please select a date.</span>
+          </div>
+          <div class="fg">
+            <label>Preferred Time <span class="req">*</span></label>
+            <select id="f-time">
+              <option value="">Select a time…</option>
+              <option>Morning (8:00 – 11:00 AM)</option>
+              <option>Midday (11:00 AM – 2:00 PM)</option>
+              <option>Afternoon (2:00 – 5:00 PM)</option>
+              <option>Late (5:00 – 6:00 PM)</option>
+            </select>
+            <span class="ferr" id="e-time">Please select a preferred time.</span>
+          </div>
+          <div class="fg fg-full">
+            <label>Insurance Provider <span style="color:var(--muted);font-weight:400;">(optional)</span></label>
+            <input type="text" id="f-insurance" placeholder="e.g. BlueCross BlueShield"/>
+          </div>
+          <div class="fg fg-full">
+            <label>Additional Notes or Concerns</label>
+            <textarea id="f-notes" placeholder="Tell us about any dental concerns, anxieties, or special requirements we should know about…"></textarea>
+          </div>
+        </div>
+        <div class="info-box">ℹ️ We accept most major insurance plans. Our team will verify your coverage before your appointment at no charge.</div>
+        <div class="form-nav">
+          <button class="btn-prev" onclick="goStep(1)">← Back</button>
+          <button class="btn-next" onclick="goStep(3)">Review →</button>
+        </div>
+      </div>
+
+      <!-- STEP 3: REVIEW -->
+      <div class="form-section" id="sec3">
+        <h3>Review & Confirm</h3>
+        <div id="review-box" style="background:white;border:1px solid var(--border);border-radius:14px;padding:1.8rem;margin-bottom:1.5rem;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem 2rem;">
+            <div><div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:0.2rem;">Full Name</div><div id="rv-name" style="font-weight:600;color:var(--navy);font-size:0.92rem;"></div></div>
+            <div><div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:0.2rem;">Email</div><div id="rv-email" style="font-weight:600;color:var(--navy);font-size:0.92rem;"></div></div>
+            <div><div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:0.2rem;">Phone</div><div id="rv-phone" style="font-weight:600;color:var(--navy);font-size:0.92rem;"></div></div>
+            <div><div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:0.2rem;">Patient Type</div><div id="rv-ptype" style="font-weight:600;color:var(--navy);font-size:0.92rem;"></div></div>
+            <div><div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:0.2rem;">Service</div><div id="rv-service" style="font-weight:600;color:var(--teal);font-size:0.92rem;"></div></div>
+            <div><div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:0.2rem;">Preferred Date</div><div id="rv-date" style="font-weight:600;color:var(--navy);font-size:0.92rem;"></div></div>
+            <div style="grid-column:1/-1"><div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:0.2rem;">Preferred Time</div><div id="rv-time" style="font-weight:600;color:var(--navy);font-size:0.92rem;"></div></div>
+          </div>
+        </div>
+        <div class="info-box">✅ Please review your details above before submitting. By confirming, you agree to receive a follow-up call or email from our team.</div>
+        <div class="form-nav">
+          <button class="btn-prev" onclick="goStep(2)">← Edit</button>
+          <button class="btn-submit" onclick="submitBooking()">🦷 Confirm Appointment</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUCCESS -->
+    <div class="success-screen" id="successScreen">
+      <div class="success-ring">✓</div>
+      <h2>Appointment Requested!</h2>
+      <p>Thank you! Our reception team will review your request and contact you within a few hours to confirm your slot.</p>
+      <div class="success-summary">
+        <div class="ss-item"><strong>Patient</strong><span id="sc-name">—</span></div>
+        <div class="ss-item"><strong>Service</strong><span id="sc-service">—</span></div>
+        <div class="ss-item"><strong>Preferred Date</strong><span id="sc-date">—</span></div>
+        <div class="ss-item"><strong>Preferred Time</strong><span id="sc-time">—</span></div>
+      </div>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <button class="btn btn-primary" onclick="resetBooking()">Book Another</button>
+        <a href="index.html" class="btn btn-ghost">← Home</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo-row">
+    <div class="footer-logo-mark">🦷</div>
+    <div><div class="footer-brand">Bright<span>Smile</span> Dental</div></div>
+  </div>
+  <p class="footer-copy">© 2026 BrightSmile Dental Clinic. All rights reserved.</p>
+  <div class="footer-socials">
+    <a href="#" class="soc">fb</a><a href="#" class="soc">ig</a><a href="#" class="soc">tw</a>
+  </div>
+</footer>
+
+<script>
+  // ── HAMBURGER MENU ──
+  document.getElementById('ham').addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+
+  // Close menu when a link is clicked
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('navLinks').classList.remove('open');
+    });
+  });
+
+  // Set active nav link based on current page
+  const currentPage = 'booking';
+  const navLink = document.getElementById('n-' + currentPage);
+  if (navLink) navLink.classList.add('active');
+
+  // ── MULTI-STEP FORM ──
+  let currentStep = 1;
+
+  function validate(id, errId, fn) {
+    const el  = document.getElementById(id);
+    const err = document.getElementById(errId);
+    const ok  = el ? fn(el.value.trim()) : true;
+    if (el)  el.classList.toggle('err', !ok);
+    if (err) err.classList.toggle('show', !ok);
+    return ok;
+  }
+
+  function validateStep(step) {
+    if (step === 1) {
+      return [
+        validate('f-first', 'e-first', v => v.length > 0),
+        validate('f-last',  'e-last',  v => v.length > 0),
+        validate('f-email', 'e-email', v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)),
+        validate('f-phone', 'e-phone', v => v.length >= 7),
+        validate('f-ptype', 'e-ptype', v => v !== ''),
+      ].every(Boolean);
+    }
+    if (step === 2) {
+      return [
+        validate('f-service', 'e-service', v => v !== ''),
+        validate('f-date',    'e-date',    v => v !== ''),
+        validate('f-time',    'e-time',    v => v !== ''),
+      ].every(Boolean);
+    }
+    return true;
+  }
+
+  function goStep(to) {
+    if (to > currentStep && !validateStep(currentStep)) return;
+
+    // Update step indicators
+    for (let i = 1; i <= 3; i++) {
+      const s = document.getElementById('s' + i);
+      s.classList.remove('active', 'done');
+      if (i < to)       s.classList.add('done');
+      else if (i === to) s.classList.add('active');
+    }
+    for (let i = 1; i <= 2; i++) {
+      const l = document.getElementById('sl' + i);
+      l.classList.toggle('done', i < to);
+    }
+
+    // Fill review if going to step 3
+    if (to === 3) fillReview();
+
+    // Show/hide sections
+    document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
+    document.getElementById('sec' + to).classList.add('active');
+    currentStep = to;
+    document.querySelector('.booking-form-area').scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function fillReview() {
+    const g = id => document.getElementById(id)?.value || '—';
+    document.getElementById('rv-name').textContent    = g('f-first') + ' ' + g('f-last');
+    document.getElementById('rv-email').textContent   = g('f-email');
+    document.getElementById('rv-phone').textContent   = g('f-phone');
+    document.getElementById('rv-ptype').textContent   = g('f-ptype');
+    document.getElementById('rv-service').textContent = g('f-service');
+    document.getElementById('rv-date').textContent    = g('f-date');
+    document.getElementById('rv-time').textContent    = g('f-time');
+  }
+
+  function submitBooking() {
+    const g = id => document.getElementById(id)?.value || '—';
+    document.getElementById('sc-name').textContent    = g('f-first') + ' ' + g('f-last');
+    document.getElementById('sc-service').textContent = g('f-service');
+    document.getElementById('sc-date').textContent    = g('f-date');
+    document.getElementById('sc-time').textContent    = g('f-time');
+
+    document.getElementById('formWrapper').style.display = 'none';
+    document.getElementById('successScreen').classList.add('show');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function resetBooking() {
+    document.getElementById('formWrapper').style.display = '';
+    document.getElementById('successScreen').classList.remove('show');
+    document.querySelectorAll('.ferr').forEach(e => e.classList.remove('show'));
+    document.querySelectorAll('.err').forEach(e => e.classList.remove('err'));
+    document.querySelectorAll('#formWrapper input, #formWrapper select, #formWrapper textarea').forEach(el => el.value = '');
+    goStep(1);
+  }
+
+  // Set min date
+  const minDate = new Date().toISOString().split('T')[0];
+  const dateEl = document.getElementById('f-date');
+  if (dateEl) dateEl.min = minDate;
+</script>
+</body>
+</html>
